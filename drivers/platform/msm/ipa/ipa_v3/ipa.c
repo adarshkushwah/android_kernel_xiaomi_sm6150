@@ -5033,14 +5033,12 @@ static void ipa3_load_ipa_fw(struct work_struct *work)
 static ssize_t ipa3_write(struct file *file, const char __user *buf,
 			  size_t count, loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, buf, count);
 
 	char dbg_buff[32] = { 0 };
 
 	if (sizeof(dbg_buff) < count + 1)
 		return -EFAULT;
-
-	missing = copy_from_user(dbg_buff, buf, count);
 
 	if (missing) {
 		IPAERR("Unable to copy data from user\n");

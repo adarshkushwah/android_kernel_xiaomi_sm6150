@@ -707,13 +707,12 @@ static ssize_t odu_debugfs_hw_bridge_mode_write(struct file *file,
 					size_t count,
 					loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, ubuf, count);
 	enum odu_bridge_mode mode;
 
 	if (sizeof(dbg_buff) < count + 1)
 		return -EFAULT;
 
-	missing = copy_from_user(dbg_buff, ubuf, count);
 	if (missing)
 		return -EFAULT;
 
