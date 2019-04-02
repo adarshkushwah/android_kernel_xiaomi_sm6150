@@ -4055,7 +4055,7 @@ static int msm_gsi_probe(struct platform_device *pdev)
 
 	gsi_ctx->dev = dev;
 	init_completion(&gsi_ctx->gen_ee_cmd_compl);
-	gsi_debugfs_init();
+	/*gsi_debugfs_init();*/
 
 	return 0;
 }
