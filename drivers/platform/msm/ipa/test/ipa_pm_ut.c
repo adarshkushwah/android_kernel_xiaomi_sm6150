@@ -1797,3 +1797,4 @@ IPA_UT_DEFINE_SUITE_START(pm, "PM for IPA",
 		ipa_pm_ut_simple_exception,
 		true, IPA_HW_v4_0, IPA_HW_MAX),
 } IPA_UT_DEFINE_SUITE_END(pm);
+

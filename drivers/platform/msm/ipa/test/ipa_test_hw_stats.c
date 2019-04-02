@@ -328,3 +328,4 @@ IPA_UT_DEFINE_SUITE_START(hw_stats, "HW stats test",
 		ipa_test_hw_stats_add_FnR, false, IPA_HW_v4_0, IPA_HW_MAX),
 
 } IPA_UT_DEFINE_SUITE_END(hw_stats);
+

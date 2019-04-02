@@ -97,3 +97,4 @@ IPA_UT_DEFINE_SUITE_START(example, "Example suite",
 		ipa_test_example_test4, false, IPA_HW_v1_1, IPA_HW_MAX),
 
 } IPA_UT_DEFINE_SUITE_END(example);
+

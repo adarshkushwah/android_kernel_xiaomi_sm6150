@@ -1512,7 +1512,7 @@ static char dbg_buff[IPA_MAX_MSG_LEN];
 static ssize_t ipa_debugfs_reset_quota_stats(struct file *file,
 	const char __user *ubuf, size_t count, loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, ubuf, count);
 	s8 client = 0;
 	int ret;
 
@@ -1522,7 +1522,6 @@ static ssize_t ipa_debugfs_reset_quota_stats(struct file *file,
 		goto bail;
 	}
 
-	missing = copy_from_user(dbg_buff, ubuf, count);
 	if (missing) {
 		ret = -EFAULT;
 		goto bail;
@@ -1611,7 +1610,7 @@ static ssize_t ipa_debugfs_print_quota_stats(struct file *file,
 static ssize_t ipa_debugfs_reset_tethering_stats(struct file *file,
 	const char __user *ubuf, size_t count, loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, ubuf, count);
 	s8 client = 0;
 	int ret;
 
@@ -1621,7 +1620,6 @@ static ssize_t ipa_debugfs_reset_tethering_stats(struct file *file,
 		goto bail;
 	}
 
-	missing = copy_from_user(dbg_buff, ubuf, count);
 	if (missing) {
 		ret = -EFAULT;
 		goto bail;
@@ -1729,7 +1727,7 @@ static ssize_t ipa_debugfs_control_flt_rt_stats(enum ipa_ip_type ip,
 	bool filtering, struct file *file,
 	const char __user *ubuf, size_t count, loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, ubuf, count);
 	u16 rule_id = 0;
 	int ret;
 
@@ -1739,7 +1737,6 @@ static ssize_t ipa_debugfs_control_flt_rt_stats(enum ipa_ip_type ip,
 		goto bail;
 	}
 
-	missing = copy_from_user(dbg_buff, ubuf, count);
 	if (missing) {
 		ret = -EFAULT;
 		goto bail;
@@ -1822,7 +1819,7 @@ static ssize_t ipa_debugfs_print_flt_rt_stats(enum ipa_ip_type ip,
 static ssize_t ipa_debugfs_reset_drop_stats(struct file *file,
 	const char __user *ubuf, size_t count, loff_t *ppos)
 {
-	unsigned long missing;
+	unsigned long missing = copy_from_user(dbg_buff, ubuf, count);
 	s8 client = 0;
 	int ret;
 
@@ -1832,7 +1829,6 @@ static ssize_t ipa_debugfs_reset_drop_stats(struct file *file,
 		goto bail;
 	}
 
-	missing = copy_from_user(dbg_buff, ubuf, count);
 	if (missing) {
 		ret = -EFAULT;
 		goto bail;

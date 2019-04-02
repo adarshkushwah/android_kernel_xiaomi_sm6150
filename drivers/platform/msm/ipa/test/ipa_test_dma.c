@@ -1142,3 +1142,4 @@ IPA_UT_DEFINE_SUITE_START(dma, "DMA for GSI",
 		ipa_test_dma_sync_memcpy_max_pkt_size,
 		true, IPA_HW_v3_0, IPA_HW_MAX),
 } IPA_UT_DEFINE_SUITE_END(dma);
+
